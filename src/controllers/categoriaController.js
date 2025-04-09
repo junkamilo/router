@@ -12,6 +12,13 @@ class CategoriasController{
     const{nombre,descripcion} = req.body;
     const OBJCategoria = new Categoria();
     const categorias = await OBJCategoria.create(nombre,descripcion);
+    return res.json(categorias);
+    }
+
+    static deleteCategoria(req,res){
+        const{ id } = req.params;
+        const OBJCategoria = new Categoria();
+        const categoria = OBJCategoria.delete(id);
     }
 }
 export default CategoriasController;

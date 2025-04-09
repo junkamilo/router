@@ -11,6 +11,6 @@ app.use('/categorias' , categoriasRouters);
 
 app.listen(3000 , () => {
     //lo esta recibiendo desde git
-    console.log("Hola mundo");
+    console.log("Ejecutandose");
     
 }); 
