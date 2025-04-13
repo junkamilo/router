@@ -14,11 +14,20 @@ class CategoriasController{
     const categorias = await OBJCategoria.create(nombre,descripcion);
     return res.json(categorias);
     }
+    static async update(req,res){
+        //Obtener el id y el nombre
+        const{id} = req.params;
+        const campos = req.body;
+        const OBJCategoria = new Categoria();
+        const data = await OBJCategoria.update(id,campos);
+        return res.json(data);
+    }
 
-    static deleteCategoria(req,res){
+    static async deleteCategoria(req,res){
         const{ id } = req.params;
         const OBJCategoria = new Categoria();
-        const categoria = OBJCategoria.delete(id);
+        const categoria = await OBJCategoria.delete(id);
+        return res.json(categoria);
     }
 }
 export default CategoriasController;
